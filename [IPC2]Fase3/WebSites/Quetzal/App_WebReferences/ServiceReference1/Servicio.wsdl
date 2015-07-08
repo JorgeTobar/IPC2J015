@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost/webService" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://localhost/webService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Web Service</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/webService">
+      <s:element name="guardar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dpi" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apellido" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nit" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="tel" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="dir" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="numT" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="usu" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contras" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="guardarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="guardarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cargarImpuestos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="directorio" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cargarImpuestosResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contraseña" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="loginResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="gettipo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contraseña" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="gettipoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="gettipoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCodigoCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contraseña" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCodigoClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getCodigoClienteResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCodigoEmpleado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contraseña" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCodigoEmpleadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getCodigoEmpleadoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cargarEmpleado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="directorio" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cargarEmpleadoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="loginEmpleados">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contraseña" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loginEmpleadosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="loginEmpleadosResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loginDirecto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contraseña" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loginDirectoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="loginDirectoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loginAdmi">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contraseña" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loginAdmiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="loginAdmiResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="guardaCobro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="porcentaje" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="guardaCobroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="guardaCobroResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarCl">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DPI" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apellido" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nit" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="telefono" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="direccion" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="tarjeta" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contraseña" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarClResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="modificarClResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cargarPaquetes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="directorio" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cargarPaquetesResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="guardarPaquete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="peso" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="precio" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="categoria" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="casilla" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="estado" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="lote" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="guardarPaqueteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="guardarPaqueteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contraseña" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ModificarClienteResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="guardarSoapIn">
+    <wsdl:part name="parameters" element="tns:guardar" />
+  </wsdl:message>
+  <wsdl:message name="guardarSoapOut">
+    <wsdl:part name="parameters" element="tns:guardarResponse" />
+  </wsdl:message>
+  <wsdl:message name="cargarImpuestosSoapIn">
+    <wsdl:part name="parameters" element="tns:cargarImpuestos" />
+  </wsdl:message>
+  <wsdl:message name="cargarImpuestosSoapOut">
+    <wsdl:part name="parameters" element="tns:cargarImpuestosResponse" />
+  </wsdl:message>
+  <wsdl:message name="loginSoapIn">
+    <wsdl:part name="parameters" element="tns:login" />
+  </wsdl:message>
+  <wsdl:message name="loginSoapOut">
+    <wsdl:part name="parameters" element="tns:loginResponse" />
+  </wsdl:message>
+  <wsdl:message name="gettipoSoapIn">
+    <wsdl:part name="parameters" element="tns:gettipo" />
+  </wsdl:message>
+  <wsdl:message name="gettipoSoapOut">
+    <wsdl:part name="parameters" element="tns:gettipoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCodigoClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:getCodigoCliente" />
+  </wsdl:message>
+  <wsdl:message name="getCodigoClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:getCodigoClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCodigoEmpleadoSoapIn">
+    <wsdl:part name="parameters" element="tns:getCodigoEmpleado" />
+  </wsdl:message>
+  <wsdl:message name="getCodigoEmpleadoSoapOut">
+    <wsdl:part name="parameters" element="tns:getCodigoEmpleadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="cargarEmpleadoSoapIn">
+    <wsdl:part name="parameters" element="tns:cargarEmpleado" />
+  </wsdl:message>
+  <wsdl:message name="cargarEmpleadoSoapOut">
+    <wsdl:part name="parameters" element="tns:cargarEmpleadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="loginEmpleadosSoapIn">
+    <wsdl:part name="parameters" element="tns:loginEmpleados" />
+  </wsdl:message>
+  <wsdl:message name="loginEmpleadosSoapOut">
+    <wsdl:part name="parameters" element="tns:loginEmpleadosResponse" />
+  </wsdl:message>
+  <wsdl:message name="loginDirectoSoapIn">
+    <wsdl:part name="parameters" element="tns:loginDirecto" />
+  </wsdl:message>
+  <wsdl:message name="loginDirectoSoapOut">
+    <wsdl:part name="parameters" element="tns:loginDirectoResponse" />
+  </wsdl:message>
+  <wsdl:message name="loginAdmiSoapIn">
+    <wsdl:part name="parameters" element="tns:loginAdmi" />
+  </wsdl:message>
+  <wsdl:message name="loginAdmiSoapOut">
+    <wsdl:part name="parameters" element="tns:loginAdmiResponse" />
+  </wsdl:message>
+  <wsdl:message name="guardaCobroSoapIn">
+    <wsdl:part name="parameters" element="tns:guardaCobro" />
+  </wsdl:message>
+  <wsdl:message name="guardaCobroSoapOut">
+    <wsdl:part name="parameters" element="tns:guardaCobroResponse" />
+  </wsdl:message>
+  <wsdl:message name="modificarClSoapIn">
+    <wsdl:part name="parameters" element="tns:modificarCl" />
+  </wsdl:message>
+  <wsdl:message name="modificarClSoapOut">
+    <wsdl:part name="parameters" element="tns:modificarClResponse" />
+  </wsdl:message>
+  <wsdl:message name="cargarPaquetesSoapIn">
+    <wsdl:part name="parameters" element="tns:cargarPaquetes" />
+  </wsdl:message>
+  <wsdl:message name="cargarPaquetesSoapOut">
+    <wsdl:part name="parameters" element="tns:cargarPaquetesResponse" />
+  </wsdl:message>
+  <wsdl:message name="guardarPaqueteSoapIn">
+    <wsdl:part name="parameters" element="tns:guardarPaquete" />
+  </wsdl:message>
+  <wsdl:message name="guardarPaqueteSoapOut">
+    <wsdl:part name="parameters" element="tns:guardarPaqueteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarCliente" />
+  </wsdl:message>
+  <wsdl:message name="ModificarClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarClienteResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceSoap">
+    <wsdl:operation name="guardar">
+      <wsdl:input message="tns:guardarSoapIn" />
+      <wsdl:output message="tns:guardarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="cargarImpuestos">
+      <wsdl:input message="tns:cargarImpuestosSoapIn" />
+      <wsdl:output message="tns:cargarImpuestosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <wsdl:input message="tns:loginSoapIn" />
+      <wsdl:output message="tns:loginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="gettipo">
+      <wsdl:input message="tns:gettipoSoapIn" />
+      <wsdl:output message="tns:gettipoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCodigoCliente">
+      <wsdl:input message="tns:getCodigoClienteSoapIn" />
+      <wsdl:output message="tns:getCodigoClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCodigoEmpleado">
+      <wsdl:input message="tns:getCodigoEmpleadoSoapIn" />
+      <wsdl:output message="tns:getCodigoEmpleadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="cargarEmpleado">
+      <wsdl:input message="tns:cargarEmpleadoSoapIn" />
+      <wsdl:output message="tns:cargarEmpleadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="loginEmpleados">
+      <wsdl:input message="tns:loginEmpleadosSoapIn" />
+      <wsdl:output message="tns:loginEmpleadosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="loginDirecto">
+      <wsdl:input message="tns:loginDirectoSoapIn" />
+      <wsdl:output message="tns:loginDirectoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="loginAdmi">
+      <wsdl:input message="tns:loginAdmiSoapIn" />
+      <wsdl:output message="tns:loginAdmiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="guardaCobro">
+      <wsdl:input message="tns:guardaCobroSoapIn" />
+      <wsdl:output message="tns:guardaCobroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="modificarCl">
+      <wsdl:input message="tns:modificarClSoapIn" />
+      <wsdl:output message="tns:modificarClSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="cargarPaquetes">
+      <wsdl:input message="tns:cargarPaquetesSoapIn" />
+      <wsdl:output message="tns:cargarPaquetesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="guardarPaquete">
+      <wsdl:input message="tns:guardarPaqueteSoapIn" />
+      <wsdl:output message="tns:guardarPaqueteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCliente">
+      <wsdl:input message="tns:ModificarClienteSoapIn" />
+      <wsdl:output message="tns:ModificarClienteSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceSoap" type="tns:WebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="guardar">
+      <soap:operation soapAction="http://localhost/webService/guardar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cargarImpuestos">
+      <soap:operation soapAction="http://localhost/webService/cargarImpuestos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <soap:operation soapAction="http://localhost/webService/login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gettipo">
+      <soap:operation soapAction="http://localhost/webService/gettipo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCodigoCliente">
+      <soap:operation soapAction="http://localhost/webService/getCodigoCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCodigoEmpleado">
+      <soap:operation soapAction="http://localhost/webService/getCodigoEmpleado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cargarEmpleado">
+      <soap:operation soapAction="http://localhost/webService/cargarEmpleado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loginEmpleados">
+      <soap:operation soapAction="http://localhost/webService/loginEmpleados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loginDirecto">
+      <soap:operation soapAction="http://localhost/webService/loginDirecto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loginAdmi">
+      <soap:operation soapAction="http://localhost/webService/loginAdmi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="guardaCobro">
+      <soap:operation soapAction="http://localhost/webService/guardaCobro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarCl">
+      <soap:operation soapAction="http://localhost/webService/modificarCl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cargarPaquetes">
+      <soap:operation soapAction="http://localhost/webService/cargarPaquetes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="guardarPaquete">
+      <soap:operation soapAction="http://localhost/webService/guardarPaquete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCliente">
+      <soap:operation soapAction="http://localhost/webService/ModificarCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceSoap12" type="tns:WebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="guardar">
+      <soap12:operation soapAction="http://localhost/webService/guardar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cargarImpuestos">
+      <soap12:operation soapAction="http://localhost/webService/cargarImpuestos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <soap12:operation soapAction="http://localhost/webService/login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gettipo">
+      <soap12:operation soapAction="http://localhost/webService/gettipo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCodigoCliente">
+      <soap12:operation soapAction="http://localhost/webService/getCodigoCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCodigoEmpleado">
+      <soap12:operation soapAction="http://localhost/webService/getCodigoEmpleado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cargarEmpleado">
+      <soap12:operation soapAction="http://localhost/webService/cargarEmpleado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loginEmpleados">
+      <soap12:operation soapAction="http://localhost/webService/loginEmpleados" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loginDirecto">
+      <soap12:operation soapAction="http://localhost/webService/loginDirecto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loginAdmi">
+      <soap12:operation soapAction="http://localhost/webService/loginAdmi" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="guardaCobro">
+      <soap12:operation soapAction="http://localhost/webService/guardaCobro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarCl">
+      <soap12:operation soapAction="http://localhost/webService/modificarCl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cargarPaquetes">
+      <soap12:operation soapAction="http://localhost/webService/cargarPaquetes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="guardarPaquete">
+      <soap12:operation soapAction="http://localhost/webService/guardarPaquete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCliente">
+      <soap12:operation soapAction="http://localhost/webService/ModificarCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Web Service</wsdl:documentation>
+    <wsdl:port name="WebServiceSoap" binding="tns:WebServiceSoap">
+      <soap:address location="http://localhost:12533/Servicio.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceSoap12" binding="tns:WebServiceSoap12">
+      <soap12:address location="http://localhost:12533/Servicio.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
